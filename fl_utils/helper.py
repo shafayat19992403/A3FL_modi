@@ -14,7 +14,6 @@ from collections import defaultdict
 import random
 import numpy as np
 from models.resnet import ResNet18
-
 class Helper:
     def __init__(self, config):
         self.config = config

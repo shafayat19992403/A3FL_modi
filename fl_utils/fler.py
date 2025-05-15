@@ -355,18 +355,40 @@ class FLer:
                 #     raise NotImplementedError
         return lr
 
+    # def sample_participants(self, epoch):
+    #     if self.helper.config.sample_method in ['random', 'random_updates']:
+    #         sampled_participants = random.sample(
+    #             range(self.helper.config.num_total_participants), 
+    #             self.helper.config.num_sampled_participants)
+    #     elif self.helper.config.sample_method == 'fix-rate':
+    #         start_index = (epoch * self.helper.config.num_sampled_participants) % self.helper.config.num_total_participants
+    #         sampled_participants = list(range(start_index, start_index+self.helper.config.num_sampled_participants))
+    #     else:
+    #         raise NotImplementedError
+    #     assert len(sampled_participants) == self.helper.config.num_sampled_participants
+    #     return sampled_participants
+    
     def sample_participants(self, epoch):
-        if self.helper.config.sample_method in ['random', 'random_updates']:
-            sampled_participants = random.sample(
-                range(self.helper.config.num_total_participants), 
-                self.helper.config.num_sampled_participants)
-        elif self.helper.config.sample_method == 'fix-rate':
-            start_index = (epoch * self.helper.config.num_sampled_participants) % self.helper.config.num_total_participants
-            sampled_participants = list(range(start_index, start_index+self.helper.config.num_sampled_participants))
+        cfg = self.helper.config
+        total = cfg.num_total_participants
+        k = cfg.num_sampled_participants
+        n_adv = cfg.num_adversaries
+
+        # if we’re in the poison window, force adversaries in
+        if cfg.is_poison and epoch >= cfg.poison_start_epoch and epoch < cfg.poison_start_epoch + cfg.poison_epochs:
+            # adversary IDs: 0,1,...,n_adv-1
+            adv_ids = list(range(n_adv))
+            # sample the remaining from the benign pool
+            benign_pool = list(range(n_adv, total))
+            rest = random.sample(benign_pool, k - n_adv)
+            sampled = adv_ids + rest
         else:
-            raise NotImplementedError
-        assert len(sampled_participants) == self.helper.config.num_sampled_participants
-        return sampled_participants
+            # pure random sample of k clients
+            sampled = random.sample(range(total), k)
+
+        assert len(sampled) == k
+        return sampled
+
     
     def copy_params(self, model, target_params_variables):
         for name, layer in model.named_parameters():
