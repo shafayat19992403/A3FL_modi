@@ -1,0 +1,37 @@
+epoch:0.000|test_acc:92.280|test_loss:0.000|bkd_acc:9.560|bkd_loss:0.009
+Epoch 1, poisoning by 0, attack sum 1.
+Outliers are:  [0]
+Actual Outliers are:  0
+C:\Users\DELL\Desktop\A3FL\A3FL_modi\fl_utils\aggregator.py:44: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  update_per_layer = torch.tensor(update_per_layer,dtype=data.dtype)
+epoch:1.000|test_acc:92.410|test_loss:0.000|bkd_acc:13.770|bkd_loss:0.006
+Epoch 2, poisoning by 0, attack sum 2.
+Outliers are:  [0]
+Actual Outliers are:  0
+C:\Users\DELL\Desktop\A3FL\A3FL_modi\fl_utils\aggregator.py:44: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  update_per_layer = torch.tensor(update_per_layer,dtype=data.dtype)
+epoch:2.000|test_acc:92.370|test_loss:0.000|bkd_acc:13.770|bkd_loss:0.006
+Epoch 3, poisoning by 0, attack sum 3.
+Outliers are:  [0]
+Actual Outliers are:  0
+C:\Users\DELL\Desktop\A3FL\A3FL_modi\fl_utils\aggregator.py:44: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  update_per_layer = torch.tensor(update_per_layer,dtype=data.dtype)
+epoch:3.000|test_acc:92.390|test_loss:0.000|bkd_acc:14.130|bkd_loss:0.006
+Epoch 4, poisoning by 0, attack sum 4.
+Outliers are:  [0]
+Actual Outliers are:  0
+C:\Users\DELL\Desktop\A3FL\A3FL_modi\fl_utils\aggregator.py:44: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  update_per_layer = torch.tensor(update_per_layer,dtype=data.dtype)
+epoch:4.000|test_acc:92.560|test_loss:0.000|bkd_acc:14.270|bkd_loss:0.006
+Epoch 5, poisoning by 0, attack sum 5.
+Outliers are:  [0]
+Actual Outliers are:  0
+C:\Users\DELL\Desktop\A3FL\A3FL_modi\fl_utils\aggregator.py:44: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  update_per_layer = torch.tensor(update_per_layer,dtype=data.dtype)
+epoch:5.000|test_acc:92.430|test_loss:0.000|bkd_acc:14.260|bkd_loss:0.006
+Epoch 6, poisoning by 0, attack sum 6.
+Outliers are:  [0]
+Actual Outliers are:  0
+C:\Users\DELL\Desktop\A3FL\A3FL_modi\fl_utils\aggregator.py:44: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  update_per_layer = torch.tensor(update_per_layer,dtype=data.dtype)
+epoch:6.000|test_acc:92.400|test_loss:0.000|bkd_acc:14.370|bkd_loss:0.006

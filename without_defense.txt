@@ -1,0 +1,10 @@
+Epoch 0, no adversary.
+epoch:0.000|test_acc:92.400|test_loss:0.000|bkd_acc:9.800|bkd_loss:0.010
+Epoch 1, poisoning by 0, attack sum 1.
+epoch:1.000|test_acc:92.480|test_loss:0.000|bkd_acc:41.400|bkd_loss:0.002
+Epoch 2, poisoning by 0, attack sum 2.
+epoch:2.000|test_acc:92.490|test_loss:0.000|bkd_acc:78.920|bkd_loss:0.000
+Epoch 3, poisoning by 0, attack sum 3.
+epoch:3.000|test_acc:92.470|test_loss:0.000|bkd_acc:97.460|bkd_loss:0.000
+Epoch 4, poisoning by 0, attack sum 4.
+epoch:4.000|test_acc:92.450|test_loss:0.000|bkd_acc:99.140|bkd_loss:0.000

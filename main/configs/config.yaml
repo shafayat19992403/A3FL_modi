@@ -44,7 +44,7 @@ parameters:
   sample_poison_ratio:
     values: [0.2]
   dirichlet_alpha:
-    values: [0.9]
+    values: [1000]
   retrain_times:
     values: [2]
   is_poison:

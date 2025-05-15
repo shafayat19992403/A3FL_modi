@@ -100,6 +100,7 @@ class Helper:
         self.test_dataset = datasets.CIFAR10(
             self.config.data_folder, train=False, transform=transform_test)
         
+        print("dirichlet: ",self.config.dirichlet_alpha)
         indices_per_participant = self.sample_dirichlet_train_data(
             self.config.num_total_participants,
             alpha=self.config.dirichlet_alpha)

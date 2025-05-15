@@ -2,6 +2,7 @@ import sys
 sys.path.append("../")
 import time
 import wandb
+from fl_utils import pca_deflect
 
 import torch
 import torch.nn.functional as F
@@ -157,7 +158,29 @@ class FLer:
         for epoch in range(-2, self.helper.config.epochs):
             sampled_participants = self.sample_participants(epoch)
             weight_accumulator, weight_accumulator_by_client = self.train_once(epoch, sampled_participants)
-            self.aggregator.agg(self.helper.global_model, weight_accumulator, weight_accumulator_by_client, self.helper.client_models, sampled_participants)
+            
+            # flat = pca_deflect.extract_client_weights(weight_accumulator_by_client)
+            # outliers, _ = pca_deflect.apply_pca_to_weights(flat, sampled_participants, epoch, [])
+            # print("Outliers are: ",outliers)
+            # print("Actual Outliers are: ", self.contain_adversary(epoch, sampled_participants))
+            
+                    
+            
+            # #self.aggregator.agg(self.helper.global_model, weight_accumulator, weight_accumulator_by_client, self.helper.client_models, sampled_participants)
+            # filtered_ids = []
+            # filtered_wac = []
+            # for cid, wa in zip(sampled_participants, weight_accumulator_by_client):
+            #     if cid not in outliers:
+            #         filtered_ids.append(cid)
+            #         filtered_wac.append(wa)
+                    
+            # new_acc = self.create_weight_accumulator()
+            # for wa in filtered_wac:
+            #     for name,delta in wa.items():
+            #         new_acc[name] += delta
+
+            # self.aggregator.agg(self.helper.global_model, new_acc, filtered_wac, self.helper.client_models, filtered_ids)
+            self.aggregator.agg(self.helper.global_model,weight_accumulator, weight_accumulator_by_client, self.helper.client_models, sampled_participants)
             loss, acc = self.test_once()
             bkd_loss, bkd_acc = self.test_once(poison = self.helper.config.is_poison)
             self.log_once(epoch, loss, acc, bkd_loss, bkd_acc)
